@@ -11,13 +11,8 @@ public class NearbyElements{
 	
 	public int[] nearby(int x, int y, int range){
 		int[] theRow = multi[x];
+		int[] leftResult = ArrayUtils.subarray(theRow, y-range, y);
 		int[] rightResult = ArrayUtils.subarray(theRow, y+1, range+y+1);
-		
-		ArrayUtils.reverse(theRow);
-		
-		int[] leftResult = ArrayUtils.subarray(theRow, theRow.length-y, range+theRow.length-y+1);
-		ArrayUtils.reverse(leftResult);
-		
 		int[] result = ArrayUtils.addAll(leftResult, rightResult);
 		
 		return result;
